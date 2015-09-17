@@ -1,0 +1,15 @@
+<% value = (source == :new ? "Submit" : "Login") %>
+<% action = (source == :new ? "users" : "users/edit") %>
+
+<form action=<%= action %> method="POST">
+  <%= auth_token %>
+  <label for="user_email">Email</label><br>
+  <input type="text" name="user[email]" id="user_email" />
+  <br>
+
+  <label for="user_password">Password</label><br>
+  <input type="text" name="user[password]" id="user_password" />
+  <br>
+
+  <input type="submit" value= <%= "#{value}" %> />
+</form>
