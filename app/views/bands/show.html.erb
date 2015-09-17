@@ -1,2 +1,9 @@
-<h1>Bands#show</h1>
-<p>Find me in app/views/bands/show.html.erb</p>
+<h1><%= @band.name %></h1>
+
+<ul>
+<% @band.albums. each do |album| %>
+  <li><%= link_to album.title, album_path(album) %></li>
+<% end %>
+</ul>
+<br>
+<div><%= link_to "Edit #{@band.name}", edit_band_path(@band) %></div>

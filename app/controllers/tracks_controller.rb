@@ -24,6 +24,17 @@ class TracksController < ApplicationController
     render :show
   end
 
+  def update
+    @track = Track.find(params[:id])
+    if @track.update(band_params)
+      flash[:success] = "Successfully updated #{@track.name}!"
+      redirect_to band_url(@track)
+    else
+      flash.new[:danger] = @track.errors.full_messages
+      render :new
+    end 
+  end
+
   def destroy
     @track = Track.find(params[:id])
     if @track

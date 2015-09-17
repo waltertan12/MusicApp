@@ -15,12 +15,23 @@ class AlbumsController < ApplicationController
   end
 
   def edit
-    @album = Band.find(params[:id])
+    @album = Album.find(params[:id])
     render :edit
   end
 
+  def update
+    @album = Album.find(params[:id])
+    if @album.update(band_params)
+      flash[:success] = "Successfully updated #{@album.name}!"
+      redirect_to band_url(@album)
+    else
+      flash.new[:danger] = @album.errors.full_messages
+      render :new
+    end 
+  end
+
   def show
-    @album = Band.find(params[:id])
+    @album = Album.find(params[:id])
     render :show
   end
 

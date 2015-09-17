@@ -1,0 +1,25 @@
+<% if source == :new %>
+  <% action = band_url %>
+  <% method = "POST" %>
+  <% value  = "" %>
+<% else %>
+  <% action = band_url(@band) %>
+  <% method = "PATCH" %>
+  <% value  = @band.name %>
+<% end %>
+<%  %>
+
+<form action=<%= action %> method="POST">
+  <input type="hidden" 
+         name="_method"
+         value="<%= method %>">
+  <%= auth_token %>
+
+  <label for="band_name">Name</label><br>
+  <input type="text" 
+         name="band[name]" 
+         id="band_name" 
+         value="<%= "#{value}" %>"><br>
+
+  <input type="submit" value="Submit">
+</form>

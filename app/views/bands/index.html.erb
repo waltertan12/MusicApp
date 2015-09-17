@@ -1,0 +1,8 @@
+<h1>Find a Band!</h1>
+<ul>
+<% @bands.each do |band| %>
+  <li><%= link_to "#{band.name}", band_url(band) %></li>
+<% end %>
+</ul>
+
+<p>Can't find a band? Add them <%= link_to "here", new_band_url %>!</p>
