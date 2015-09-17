@@ -16,4 +16,11 @@ class ApplicationController < ActionController::Base
   def logged_in?
     current_user
   end
+
+  def ensure_user_logged_in
+    unless logged_in?
+      flash[:danger] = "Please log in or sign up"
+      redirect_to root_url
+    end
+  end
 end

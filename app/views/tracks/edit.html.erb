@@ -1,2 +1,3 @@
-<h1>Tracks#edit</h1>
-<p>Find me in app/views/tracks/edit.html.erb</p>
+<h1>Edit <%= @track.name %></h1>
+<% album = Album.find(@track.album_id) %> 
+<%= render 'track_form', track: @track, album: album %>

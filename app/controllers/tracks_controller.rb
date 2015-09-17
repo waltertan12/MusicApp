@@ -1,5 +1,8 @@
 class TracksController < ApplicationController
+  before_action :ensure_user_logged_in
+
   def new
+    @track = Track.new
     render :new
   end
 
@@ -26,9 +29,9 @@ class TracksController < ApplicationController
 
   def update
     @track = Track.find(params[:id])
-    if @track.update(band_params)
+    if @track.update(track_params)
       flash[:success] = "Successfully updated #{@track.name}!"
-      redirect_to band_url(@track)
+      redirect_to track_url(@track)
     else
       flash.new[:danger] = @track.errors.full_messages
       render :new
@@ -49,6 +52,6 @@ class TracksController < ApplicationController
 
   private
   def track_params
-    params.require(:track).permit(:album_id, :lyrics, :bonus)
+    params.require(:track).permit(:name, :album_id, :lyrics, :bonus)
   end
 end

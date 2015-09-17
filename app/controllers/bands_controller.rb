@@ -1,5 +1,8 @@
 class BandsController < ApplicationController
+  before_action :ensure_user_logged_in
+
   def new
+    @band = Band.new
     render :new
   end
 

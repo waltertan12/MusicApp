@@ -22,3 +22,13 @@ causers   = Album.create!(title:   "Causers of This",
 shut_up   = Album.create!(title:   "Shut Up and Play the Hits",
                           band_id: lcd.id,
                           live:    true)
+
+monkey = Track.create!(name: "Monkey Gone to Heaven",
+                       album_id: doolittle.id,
+                       lyrics: "WOW",
+                       bonus: false)
+
+stop   = Track.create!(name: "Stop",
+                       album_id: in_heaven.id,
+                       lyrics: "Stop?",
+                       bonus: false)

@@ -1,5 +1,8 @@
 class AlbumsController < ApplicationController
+  before_action :ensure_user_logged_in
+  
   def new
+    @album = Album.new
     render :new
   end
 
@@ -21,9 +24,9 @@ class AlbumsController < ApplicationController
 
   def update
     @album = Album.find(params[:id])
-    if @album.update(band_params)
-      flash[:success] = "Successfully updated #{@album.name}!"
-      redirect_to band_url(@album)
+    if @album.update(album_params)
+      flash[:success] = "Successfully updated #{@album.title}!"
+      redirect_to album_url(@album)
     else
       flash.new[:danger] = @album.errors.full_messages
       render :new

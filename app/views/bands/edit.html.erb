@@ -1,3 +1,7 @@
 <h1>Edit <%= @band.name %></h1>
 
 <%= render 'band_form', source: :edit %>
+<br>
+<%= button_to "Delete #{@band.name}", band_path(@band), 
+                                       method: :delete, 
+                                       data: {confirm: "Are you sure?"}%>

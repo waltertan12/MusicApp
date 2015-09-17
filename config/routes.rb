@@ -1,22 +1,4 @@
 Rails.application.routes.draw do
-  get 'tracks/new'
-
-  get 'tracks/edit'
-
-  get 'tracks/show'
-
-  get 'albums/new'
-
-  get 'albums/edit'
-
-  get 'albums/show'
-
-  get 'bands/new'
-
-  get 'bands/edit'
-
-  get 'bands/show'
-
   root 'users#new'
 
   resources :users,   only: [:new, :create, :show]

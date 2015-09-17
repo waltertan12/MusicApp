@@ -1,2 +1,14 @@
-<h1>Tracks#show</h1>
-<p>Find me in app/views/tracks/show.html.erb</p>
+<% album = Album.find(@track.album_id) %>
+<% band  = Band.find(album.band_id) %>
+<h1><%= @track.name %></h1>
+<h5>
+  from 
+  <%= link_to album.title, album_url(album) %> 
+  by 
+  <%= link_to band.name, band_url(band) %>
+</h5>
+
+<h3>Lyrics</h3>
+<%= @track.lyrics %>
+<p><%= link_to "Edit #{@track.name}", edit_track_url(@track) %></p>
+<p><%= link_to "Back to #{album.title}", album_url(album) %></p>
