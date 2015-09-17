@@ -4,13 +4,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    if @user
+    user = User.new(user_params)
+    if user.save
       flash[:success] = "Welcome to MusicApp!"
-      # login_user!
-      redirect_to root_url
+      log_in_user!(user)
+      redirect_to user_url(user)
     else
-      flash[:danger] = @user.errors.full_messages
+      flash.now[:danger] = user.errors.full_messages
       render :new
     end
   end
@@ -18,6 +18,11 @@ class UsersController < ApplicationController
   # def edit
   #   render :edit
   # end
+
+  def show
+    @user = User.find(params[:id])
+    render :show
+  end
 
   private
 

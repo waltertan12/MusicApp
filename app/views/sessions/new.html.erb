@@ -1,7 +1,6 @@
-<% value =  (source == :new ? "Submit" : "Login") %>
-<%# action = (source == :new ? "/users" : "/users/edit") %>
+<h1>Login</h1>
 
-<form action="/users" method="POST">
+<form action="/session" method="POST">
   <%= auth_token %>
   <label for="user_email">Email</label><br>
   <input type="text" name="user[email]" id="user_email" />
@@ -11,5 +10,5 @@
   <input type="password" name="user[password]" id="user_password" />
   <br>
 
-  <input type="submit" value= <%= "#{value}" %> />
+  <input type="submit" value="Login" %/>
 </form>

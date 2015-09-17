@@ -1,0 +1,7 @@
+<% unless flash.nil? %>
+  <ul>
+  <% flash.each do |type, message |%>
+    <li><%= message %></li>
+  </ul>
+  <% end %>
+<% end %>
