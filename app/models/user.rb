@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
+  has_many :notes
+
   def User.find_by_credentials(email, password)
     user = User.find_by(email: email)
     user if user && user.is_password?(password)
