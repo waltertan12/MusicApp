@@ -1,5 +1,6 @@
 class TracksController < ApplicationController
   before_action :ensure_user_logged_in
+  before_action :admin_user?, only: [:destroy]
 
   def new
     @track = Track.new
