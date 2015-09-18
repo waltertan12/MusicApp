@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'users#new'
+  root 'static_pages#index'
 
   resources :users,    only: [:new, :create, :show] do
     member do
