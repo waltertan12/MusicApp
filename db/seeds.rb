@@ -30,5 +30,5 @@ monkey = Track.create!(name: "Monkey Gone to Heaven",
 
 stop   = Track.create!(name: "Stop",
                        album_id: in_heaven.id,
-                       lyrics: "Stop?",
+                       lyrics: "Here in another land giving up all of my trials\r\nLittle did I think that you'd be doing the same for me,\r\nFor me\r\n\r\nWhere this goes I'm trailing behind cause\r\nI can't tell myself to stop\r\nTo stop to feel\r\nFeel if I like it\r\n\r\nI keep telling myself to stop\r\nI hear it ringing\r\nI keep telling myself to stop\r\nAm I already with you oh what do we do now?\r\n\r\nSome day it's all over\r\nWill I remember the scenery then?\r\nThe stampede we will all part from\r\nSo close to my skeleton\r\nMaybe it's foolish to wanna be alone\r\nI keep telling myself to stop\r\nTo stop and feel\r\nFeel if I like it\r\n",
                        bonus: false)
