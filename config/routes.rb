@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  get 'notes/create'
-
   root 'users#new'
 
-  resources :users,    only: [:new, :create, :show]
+  resources :users,    only: [:new, :create, :show] do
+    member do
+      get 'activate'
+    end
+  end
   resource  :session,  only: [:new, :create, :destroy]
   resources :bands do
     resources :albums, only: :new

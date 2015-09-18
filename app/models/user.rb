@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
   validates :password, length: { minimum: 8 }, allow_nil: true
 
-  after_initialize :ensure_session_token
+  after_initialize :ensure_session_token, :generate_activation_token
 
   has_many :notes
 
@@ -46,5 +46,14 @@ class User < ActiveRecord::Base
 
   def is_password?(password)
     BCrypt::Password.new(password_digest).is_password?(password)
+  end
+
+  def generate_activation_token
+    self.activation_token = generate_token
+  end
+
+  def activate_user
+    self.updated_at = Time.now
+    self.activated  = true
   end
 end

@@ -6,9 +6,14 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by_credentials(params[:user][:email], 
                                     params[:user][:password])
-    if user
+    if user && user.activated?
       log_in_user!(user)
       redirect_to user_url(user)
+    elsif user && !user.activated?
+      flash[:danger] = "Please check for a confirmation email"
+      msg = UserMailer.user_created(user)
+      msg.deliver_now
+      redirect_to new_session_url
     else
       flash.now[:danger] = "Email or password is incorrect"
       render :new
