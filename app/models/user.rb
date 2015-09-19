@@ -17,7 +17,8 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
   validates :password, length: { minimum: 8 }, allow_nil: true
 
-  after_initialize :ensure_session_token, :generate_activation_token
+  after_initialize :ensure_session_token
+  before_create    :generate_activation_token
 
   has_many :notes
 
@@ -26,17 +27,17 @@ class User < ActiveRecord::Base
     user if user && user.is_password?(password)
   end
 
-  def generate_token
+  def User.generate_token
     SecureRandom.urlsafe_base64
   end
 
   def reset_session_token!
-    self.session_token = generate_token
+    self.session_token = User.generate_token
     self.save!
   end
 
   def ensure_session_token
-    self.session_token ||= generate_token
+    self.session_token ||= User.generate_token
   end
 
   def password=(password)
@@ -49,7 +50,7 @@ class User < ActiveRecord::Base
   end
 
   def generate_activation_token
-    self.activation_token = generate_token
+    self.activation_token = User.generate_token
   end
 
   def activate_user

@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       log_in_user!(user)
       redirect_to user_url(user)
     elsif user && !user.activated?
-      flash[:danger] = "Please check for a confirmation email"
+      flash[:danger] = "Please activate your account"
       msg = UserMailer.user_created(user)
       msg.deliver_now
       redirect_to new_session_url
