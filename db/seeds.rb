@@ -36,17 +36,17 @@ Track.create!(name: "Monkey Gone to Heaven",
 
 Track.create!(name: "Daniel",
               album_id: in_heaven.id,
-              lyrics: "wowyeywow",
+              lyrics: "Saw you making eyes at me\r\nHotels are loneliest\r\nin little miss New Jersey\r\nBack to work and on your feet\r\nand oh, you're so far away\r\nand God knows when\r\nI'd ever get the chance\r\nto touch your hands\r\nyou know we'll never date let alone be friends\r\nyou're so far away\r\nit hurts so bad\r\n\r\nSoftly walk away from me\r\nGoodbyes are loneliest\r\nWhen you know we'll never meet\r\nFace to face or feet to feet\r\nand oh, you're so far away\r\nand God knows when\r\nI'd ever get the chance\r\nto touch your hands\r\nyou know we'll never date let alone be friends\r\nyou're so far away\r\nit hurts so bad",
               bonus: false)
 Track.create!(name: "Bad Street",
               album_id: in_heaven.id,
-              lyrics: "wowyeywow",
+              lyrics: "Feel it with you, in you feel it\r\nIn you feel it, in you feel it\r\nIn you feel it, in you feel it\r\nIn you feel it\r\n\r\nFeel it with you\r\nIf you feel it in you\r\nMake it a commotion with you\r\nMake it a commotion in you\r\n\r\nSeeing all the glimmer in you\r\nSeeing all the glimmer with you\r\nFeeling with you, feeling in you\r\n\r\nI want it bad, I want it bad\r\nI want it bad, I want it bad\r\nI want it bad, I want it bad\r\n\r\nTell me a story, something I can picture\r\nBad house, bad street\r\nTell me a secret, I won't tell anyone\r\n\r\nBad house, bad street\r\nTell me whatever\r\nGive me something to do\r\nBad house, bad street\r\n\r\nMake me a promise 'cause\r\nI want it bad, I want it bad\r\nI want it bad, I want it bad\r\nI want it bad, I want it bad\r\n\r\nBad house, bad street\r\nBig hands, big feet\r\nGot a car, beet, beet\r\nBad boy, bad street\r\n\r\nGood kids, two kids\r\nGot a job, feeds three",
               bonus: false)
 Track.create!(name: "Space Babe",
               album_id: in_heaven.id,
-              lyrics: "wowyeywow",
+              lyrics: "Time, taking its time\r\nTo land through the sky\r\nI'd be there by now\r\nTo see where you live",
               bonus: false)
 Track.create!(name: "Kimmi in a Rice Field",
               album_id: in_heaven.id,
-              lyrics: "wowyeywow",
+              lyrics: "At first the sky was empty\r\nKimmi's feet follow\r\nThe path to the edge\r\nNear the road\r\nA boy passes\r\nGuiding his bike\r\nHe waves hello.",
               bonus: false)
