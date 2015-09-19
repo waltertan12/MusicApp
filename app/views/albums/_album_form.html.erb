@@ -15,7 +15,7 @@
          name="album[title]" 
          value="<%= value["title"] %>"><br>
 
-  <select value="album[band_id]">
+  <select name="album[band_id]">
     <% Band.all.each do |band| %>
       <option value=<%= "#{band.id}" %> 
               <%= "selected" if band.id == value["band_id"] %>>

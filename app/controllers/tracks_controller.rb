@@ -4,27 +4,34 @@ class TracksController < ApplicationController
 
   def new
     @track = Track.new
+    @album  = Album.includes(:band).find(params[:album_id])
+    @albums = @album.band.albums
     render :new
   end
 
   def create
-    @track = Track.create(track_params)
+    @track = Track.new(track_params)
     if @track.save
       flash[:success] = "Successfully created #{@track.name}!"
       redirect_to track_url(@track)
     else
-      flash.new[:danger] = @track.errors.full_messages
+      flash.now[:danger] = @track.errors.full_messages
+      @track = Track.new
+      @album  = Album.includes(:band).find(params[:album_id])
+      @albums = @album.band.albums
       render :new
     end
   end
 
   def edit
-    @track = Track.find(params[:id])
+    @track = Track.includes(:album, album: :band).find(params[:id])
+    @album  = @track.album
+    @albums = @album.band.albums
     render :edit
   end
 
   def show
-    @track = Track.find(params[:id])
+    @track = Track.includes(:album, album: :band).find(params[:id])
     render :show
   end
 
@@ -35,7 +42,7 @@ class TracksController < ApplicationController
       redirect_to track_url(@track)
     else
       flash.new[:danger] = @track.errors.full_messages
-      render :new
+      render :edit
     end 
   end
 

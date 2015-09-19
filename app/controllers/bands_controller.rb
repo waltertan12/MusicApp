@@ -40,7 +40,8 @@ class BandsController < ApplicationController
   end
 
   def show
-    @band = Band.find(params[:id])
+    # @band = Band.find(params[:id])
+    @band = Band.includes(:albums).find(params[:id])
     render :show
   end
 

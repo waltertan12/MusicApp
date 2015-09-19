@@ -1,12 +1,13 @@
 <h1><%= @album.title %></h1>
-<% band = Band.find(@album.band_id) %>
-<h5>by <%= "#{band.name}" %></h5>
+<h5>by <%= link_to "#{@album.band.name}", band_url(@album.band) %></h5>
 <h3>Tracklist</h3>
 <ul>
   <% @album.tracks.each do |track| %>
     <li><%= link_to "#{track.name}", track_path(track) %></li>
   <% end %>
 </ul>
-
+<hr>
+<br>
+<p><%= link_to "Add track", new_album_track_url(@album) %></p>
 <p><%= link_to "Edit #{@album.title}", edit_album_path(@album) %></p>
-<p><%= link_to "Back to #{band.name}", band_url(band) %></p>
+<p><%= link_to "Back to #{@album.band.name}", band_url(@album.band) %></p>

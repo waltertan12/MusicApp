@@ -4,6 +4,7 @@ class AlbumsController < ApplicationController
   
   def new
     @album = Album.new
+    @band  = Band.find(params[:band_id])
     render :new
   end
 
@@ -35,7 +36,7 @@ class AlbumsController < ApplicationController
   end
 
   def show
-    @album = Album.find(params[:id])
+    @album = Album.includes(:tracks).find(params[:id])
     render :show
   end
 

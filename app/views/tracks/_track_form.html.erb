@@ -7,19 +7,30 @@
          value=<%= method %>>
   <%= auth_token %>
   <label for="name">Name</label><br>
-  <input type="text" name="track[name]" value="<%= "#{track["name"]}" %>"><br>
+  <input type="text" 
+         name="track[name]" 
+         value="<%= "#{track["name"]}" if track.persisted? %>"><br>
   <br>
   <label for="album">Album</label><br>
-  <select>
-    <% Album.all.each do |single_album| %>
-      <option name="track[album_id]" 
-        <%= "selected" if album == single_album %>>
-        <%= single_album.title %>
+  <select name="track[album_id]">
+    <% albums.each do |album| %>
+      <option value="<%= album.id %>"
+        <% if track.persisted? %>
+          <%= "selected" if track.album_id == album.id %>
+        <% else %>
+          <%= "selected" if params[:album_id] == "#{album.id}" %>
+        <% end %>>
+        <%= album.title %>
       </option>
     <% end %>
   <select><br>
   <br>
-
+  <label for="track_bonus">Bonus?</label><br>
+  Yes <input type="radio" name="track[bonus]"
+        <%= "checked" if track.persisted? && track.bonus? %>>
+  No <input type="radio" name="track[bonus]" <%=  %>
+        <%= "checked" if track.persisted? && !track.bonus? %>><br>
+  <br>
   <label for="lyrics">Lyrics</label><br>
   <textarea name="track[lyrics]" 
             value=""
